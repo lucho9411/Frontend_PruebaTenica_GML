@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeflex/primeflex.scss";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/prismjs/themes/prism-coy.css";
+@import "assets/sass/layout/_variables";
+@import "assets/sass/layout/_layout";
+
+h1, span {
+    font-size: 1.5rem !important;
+}
+
+p-card, p-button {
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+
+input {
+    width: 100% !important;
+}
+
+body {
+    background-image: radial-gradient(circle at 50% -20.71%, #4fcaee 0, #4fcaee 12.5%, #4ac2e5 25%, #4ac2e5 37.5%, #42b6d8 50%, #31afd3 62.5%, #4881e4 75%, #0046ff 87.5%, #004bff 100%) !important;
+    font-size: 1rem !important;
+}
+
+.error-message {
+    color: red !important;
+}

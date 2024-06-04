@@ -1,0 +1,20 @@
+<div class="layout-topbar">
+    <a class="layout-topbar-logo" routerLink="">
+        <img src="assets/logo-alianza.png" alt="Logo Alianza" height="60" class="mb-3 alianza-icono">
+    </a>
+    <a class="p-link layout-menu-button layout-topbar-button" href="#" (click)="appMain.toggleMenu($event)">
+        <i class="pi pi-bars"></i>
+    </a>
+
+    <div class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active':appMain.topMenuActive}">
+        <a
+            [routerLink]=""
+            class="p-link layout-topbar-button a-logout"
+            pTooltip="Logout"
+            tooltipPosition="left"
+            (click)="logout();">
+            <i class="pi pi-sign-out"></i>
+            <span>Logout</span>
+        </a>
+    </div>
+</div>

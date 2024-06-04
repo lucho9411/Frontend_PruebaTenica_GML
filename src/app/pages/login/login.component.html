@@ -1,0 +1,50 @@
+<div class="surface-card flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden surface-parent">
+    <div class="grid justify-content-center p-2 lg:p-0 div-grid">
+        <div class="col-12 xl:col-6">
+            <div class="surface-card h-full w-full m-0 py-7 px-4 surface-children">
+                <div class="text-center mb-5">
+                    <img src="assets/logo-alianza.png" alt="Logo Alianza" height="60" class="mb-3">
+                    <div class="text-800 text-2xl font-medium mb-3">Bienvenido al Sistema!</div>
+                </div>
+                <br />
+                <div class="w-full md:w-10 mx-auto">
+                    <form [formGroup]="form">
+                        <label for="email1" class="block text-800 text-xl font-medium mb-2">Correo Electrónico</label>
+                        <input
+                            id="email1"
+                            type="text"
+                            formControlName="email"
+                            pInputText
+                            class="w-full mb-3 div-email">
+                        @if (form.get('email')?.dirty&&form.get('email')?.invalid) {
+                            <label class="error-message">Correo electrónico inválido</label>
+                        }
+
+                        <br /><br />
+                        <label for="password1" class="block text-800 font-medium text-xl mb-2">Contraseña</label>
+                        <p-password
+                            id="password1"
+                            placeholder="Password"
+                            formControlName="password"
+                            [toggleMask]="true"
+                            styleClass="w-full mb-3">
+                        </p-password>
+                        @if (form.get('password')?.dirty&&form.get('password')?.invalid) {
+                            <label class="error-message">Contraseña Inválida</label>
+                        }
+                        <br /> <br /><br />
+                        <button
+                            pButton
+                            pRipple
+                            [disabled]="form.invalid"
+                            (click)="login();"
+                            label="Ingresar"
+                            class="w-full p-3 text-xl">
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p-toast />

@@ -1,0 +1,19 @@
+:host ::ng-deep {
+    button {
+        width: 80%;
+    }
+}
+label {
+    font-size: 1rem !important;
+}
+
+.card {
+    background-image: radial-gradient(circle at 50% -20.71%, #e0f0ec 0, #d9eae6 12.5%, #cfe7e1 25%, #c6e3dc 37.5%, #bfe0d8 50%, #b5d7cf 62.5%, #add1c9 75%, #a6cdc4 87.5%, #8fc8bb 100%) !important;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+
+input {
+    height: 40px !important;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+}

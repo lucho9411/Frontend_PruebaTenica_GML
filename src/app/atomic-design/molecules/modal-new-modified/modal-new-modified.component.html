@@ -1,0 +1,71 @@
+<p-dialog
+    header="{{ title }}"
+    [modal]="true"
+    [(visible)]="visible"
+    [style]="{ width: '50rem' }"
+    [draggable]="false" 
+    [resizable]="false"
+    (onHide)="cancel()">
+
+    <div class="card">
+        <form [formGroup]="form">
+            <div class="grid">
+                <div class="col-4">
+                    <label for="name" class="block text-600 text-xl font-medium mb-2">Name</label>
+                </div>
+                <div class="col-8">
+                    <input
+                        id="name"
+                        type="text"
+                        formControlName="name"
+                        pInputText
+                        class="w-full mb-3 div-name">
+                    @if (form.get('name')?.dirty&&form.get('name')?.invalid) {
+                        <label class="error-message">Nombre inválido</label>
+                    }
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-4">
+                    <label for="phone" class="block text-600 text-xl font-medium mb-2">Phone</label>
+                </div>
+                <div class="col-8">
+                    <p-inputMask 
+                        mask="(999) 999-9999" 
+                        formControlName="phone"
+                        placeholder="(999) 999-9999" />
+                    @if (form.get('phone')?.dirty&&form.get('phone')?.invalid) {
+                        <label class="error-message">Teléfono inválido</label>
+                    }
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-4">
+                    <label for="email" class="block text-600 text-xl font-medium mb-2">E-mail</label>
+                </div>
+                <div class="col-8">
+                    <input
+                        id="email"
+                        type="text"
+                        formControlName="email"
+                        pInputText
+                        class="w-full mb-3 div-email">
+                        @if (form.get('email')?.dirty&&form.get('email')?.invalid) {
+                            <label class="error-message">Email inválido</label>
+                        }
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-9">
+                </div>
+                <div class="col-3">
+                    <p-button
+                        label="Save"
+                        (click)="saveChanges();"
+                        [disabled]="form.invalid"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</p-dialog>

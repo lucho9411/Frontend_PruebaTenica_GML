@@ -1,0 +1,74 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">            
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                    <div class="my-2">
+                        <p-button
+                            label="New"
+                            icon="pi pi-plus"
+                            class="p-button-success mr-2"
+                            (click)="showModalNewModified();">
+                        </p-button>
+                        <p-button
+                            label="Export"
+                            icon="pi pi-download"
+                            class="p-button-help"
+                            (click)="export();">
+                        </p-button>
+                    </div>
+                </ng-template>
+            </p-toolbar>
+            <div class="grid">
+                <div class="col-6 sm:col-6 md:col-6 lg:col-5 xl:col-5">
+                    <form [formGroup]="searchForm">
+                        <p-inputGroup>
+                            <input
+                                type="text"
+                                pInputText
+                                placeholder="Enter Shared Key"
+                                formControlName="search"/>
+                            <button
+                                pButton
+                                pRipple
+                                label="Search"
+                                (click)="search();"
+                                [disabled]="searchForm.invalid">
+                            </button>
+                        </p-inputGroup>
+                    </form>
+                </div>
+                <div class="col-6 sm:col-6 md:col-6 lg:col-3 xl:col-3">
+                    <p-button
+                        label="Advanced Search"
+                        (click)="showAdvanced();"/>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            @if (showAdvancedSearch) {
+                <div class="grid">
+                    <div class="col-12 sm:col-12 md:col-12 lg:col-8 xl:col-8">
+                        <app-form-advanced-search
+                            (advancedSearchEmit)="applyAdvancedSearch($event);">
+                        </app-form-advanced-search>
+                    </div>
+                </div>
+            }
+            <br />
+            <app-table-crud
+                [clients]="clients"
+                (reLoadTableEmit)="listClients();"
+                (modifiedClientEmit)="showModalNewModified($event);"
+                (deleteClientEmit)="deleteClient($event);">
+            </app-table-crud>
+        </div>
+    </div>
+</div>
+<app-modal-new-modified
+    [visible]="showModal"
+    (cancelEmit)="cancelModal($event);"
+    (saveEmit)="save($event)"
+    #modal>
+</app-modal-new-modified>
+<p-toast />
+<p-confirmDialog />

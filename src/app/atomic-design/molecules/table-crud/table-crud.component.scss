@@ -1,0 +1,31 @@
+.column-sortable {
+    width:20%;
+}
+
+h1 {
+    color: #4F46E5;
+}
+
+.column-center {
+    text-align: center;
+    align-items: center;
+}
+
+p-table {
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+
+img {
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.row-data {
+    text-align: center;
+    align-items: center;
+}
+
+.frozen-column {
+    min-width:80px;
+    background-color: lightgray;
+}
